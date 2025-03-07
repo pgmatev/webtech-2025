@@ -1,3 +1,26 @@
-<!-- <div>, <p>, <h1>, <ul>, <li>, <button> -->
-<!-- inline styles, external css -->
-<!-- <script> -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Finance helper</title>
+  </head>
+  <body>
+    <div class="form">
+      <input
+        id="expense-name"
+        type="text"
+        placeholder="Enter expense name..."
+      />
+      <input
+        id="expense-amount"
+        type="number"
+        placeholder="Enter expense amount..."
+      />
+      <button id="add-expense-btn" class="btn">Add expense</button>
+    </div>
+
+    <ul id="expenses-list" class="list"></ul>
+    <script src="script.js"></script>
+  </body>
+</html>

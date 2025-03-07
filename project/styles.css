@@ -1,2 +1,40 @@
-/* Selectors: element, class, id, property */
-/* colors, spacing, fonts, borders, default elements styles */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  gap: 50px;
+}
+
+.form {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  border: 2px black solid;
+  border-radius: 5px;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-item {
+  border-bottom: 2px black solid;
+}
+
+.btn {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f1356d;
+  color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #f1356d88;
+}
