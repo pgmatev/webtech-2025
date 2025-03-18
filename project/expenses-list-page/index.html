@@ -3,9 +3,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles/global.css" />
     <title>Finance helper</title>
   </head>
   <body>
+    <header>
+      <h1 id="welcome-message"></h1>
+      <button id="logout-btn" class="button">Logout</button>
+    </header>
     <div class="form">
       <input
         id="expense-name"
@@ -17,7 +22,7 @@
         type="number"
         placeholder="Enter expense amount..."
       />
-      <button id="add-expense-btn" class="btn">Add expense</button>
+      <button id="add-expense-btn" class="button">Add expense</button>
     </div>
 
     <ul id="expenses-list" class="list"></ul>

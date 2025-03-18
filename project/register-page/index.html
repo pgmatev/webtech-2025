@@ -1,0 +1,37 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <title>Register to Finance Helper</title>
+  </head>
+  <body>
+    <form onsubmit="return handleRegisterSubmit(event)" class="form">
+      <input
+        class="form-input"
+        id="email"
+        type="email"
+        placeholder="Email..."
+      />
+      <span id="email-error"></span>
+      <input
+        class="form-input"
+        id="username"
+        type="text"
+        placeholder="Username..."
+      />
+      <span id="username-error"></span>
+      <input
+        class="form-input"
+        id="password"
+        type="password"
+        placeholder="Password..."
+      />
+
+      <button type="submit" id="register-btn" class="button">Register</button>
+    </form>
+
+    <script src="../login-page/script.js"></script>
+  </body>
+</html>

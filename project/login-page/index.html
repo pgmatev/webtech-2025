@@ -1,0 +1,31 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <title>Login to Finance Helper</title>
+  </head>
+  <body>
+    <form onsubmit="return handleSubmit(event)" class="form">
+      <input
+        class="form-input"
+        id="username"
+        type="text"
+        placeholder="Username..."
+      />
+      <input
+        class="form-input"
+        id="password"
+        type="password"
+        placeholder="Password..."
+      />
+      <div>
+        <button type="submit" id="login-btn" class="button">Login</button>
+        <a href="../register-page/" class="button">Register</a>
+      </div>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -14,3 +14,13 @@ button.addEventListener("click", () => {
   inputName.value = "";
   inputAmount.value = "";
 });
+
+const loggedUser = window.localStorage.getItem("username");
+document.getElementById("welcome-message").textContent = `Welcome, ${
+  loggedUser || "Guest"
+}!`;
+
+document.getElementById("logout-btn").addEventListener("click", () => {
+  window.localStorage.removeItem("username");
+  window.location.href = "../login-page";
+});
