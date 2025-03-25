@@ -16,6 +16,7 @@ This is a repository for Web Technologies course in FMI
   - Cloud setup: https://docs.atlas.mongodb.com/
 - How to setup Express
   - ExpressJs documentation: https://expressjs.com/en/starter/installing.html
+  - Express + TypeScript: https://blog.logrocket.com/how-to-set-up-node-typescript-express/
 
 ## Resources
 
