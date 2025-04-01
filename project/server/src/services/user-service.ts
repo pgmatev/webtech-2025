@@ -1,18 +1,18 @@
-interface User {
+export interface User {
   id: string;
   email: string;
   username: string;
   password: string;
 }
 
-interface Expense {
+export interface Expense {
   id: string;
   name: string;
   amount: number;
   userId: string;
 }
 
-const users: User[] = [
+export const users: User[] = [
   {
     id: "1",
     email: "admin@admin.com",
@@ -27,7 +27,7 @@ const users: User[] = [
   },
 ];
 
-const expenses: Expense[] = [
+export const expenses: Expense[] = [
   { id: "1", name: "Rent", amount: 1000, userId: "1" },
   { id: "2", name: "Food", amount: 200, userId: "1" },
   { id: "3", name: "Rent", amount: 1000, userId: "2" },

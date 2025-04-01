@@ -2,29 +2,28 @@ import { Router } from "express";
 import { UserService } from "../services/user-service";
 import { Request, Response } from "express";
 import { expensePostMiddleware } from "../middlewares/expensePost-middleware";
+import { ExpenseService } from "../services/expense-service";
 
 export const expenseRouter = Router();
 
-expenseRouter.get("/expenses", (req, res) => {
+expenseRouter.get("/", (req, res) => {
   const userId = req.query.userId as string;
 
-  // SHOULD BE IN A SERVICE
-  // if (userId) {
-  //   const userExpenses = expenses.filter(
-  //     (expense) => expense.userId === userId
-  //   );
+  if (userId) {
+    const userExpenses = ExpenseService.getExpenseByUserId(userId);
 
-  //   res.json(userExpenses);
-  //   return;
-  // }
+    res.json(userExpenses);
+    return;
+  }
 
-  // res.json(expenses);
+  const allExpenses = ExpenseService.getAllExpenses();
+  res.json(allExpenses);
 });
 
-expenseRouter.post("/expenses", expensePostMiddleware, (req, res) => {
+expenseRouter.post("/", expensePostMiddleware, (req, res) => {
   const { name, amount, userId } = req.body;
 
-  const newExpense = UserService.addUserExpense(userId, name, amount);
+  const newExpense = ExpenseService.addExpense(userId, name, amount);
 
   res.status(201).json(newExpense);
 });
