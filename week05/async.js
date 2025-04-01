@@ -138,7 +138,7 @@ async function fetchSpaceXData() {
 
   const parsedResponse = await response.json(); // .json is async
   const successfulLaunchesCount = parsedResponse.reduce(
-    (count, launch) => count + (launch.success ? 1 : 0),
+    (count, launch) => count + (!launch.success ? 1 : 0),
     0
   );
   console.log(successfulLaunchesCount);
