@@ -1,3 +1,5 @@
+import { BadRequestError, NotFoundError } from "../exceptions/Exceptions";
+
 export interface User {
   id: string;
   email: string;
@@ -35,6 +37,49 @@ export const expenses: Expense[] = [
 ];
 
 export class UserService {
+  static login(email: string, password: string) {
+    const user = users.find(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (!user) {
+      throw new BadRequestError("Invalid email or password");
+    }
+
+    return user;
+  }
+
+  static register(email: string, password: string, username: string) {
+    const user = users.find(
+      (user) => user.email === email || user.username === username
+    );
+
+    if (user) {
+      throw new BadRequestError(
+        "User with this email or username already exists"
+      );
+    }
+
+    const newUser: User = {
+      id: (users.length + 1).toString(),
+      email,
+      username,
+      password,
+    };
+
+    return newUser;
+  }
+
+  static getUserByUsername(username: string) {
+    const user = users.find((user) => user.username === username);
+
+    if (!user) {
+      throw new NotFoundError("User not found.");
+    }
+
+    return user;
+  }
+
   static getUserExpenses(userId: string) {
     const userExpenses = expenses.filter(
       (expense) => expense.userId === userId

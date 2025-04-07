@@ -7,6 +7,7 @@ import { UserService } from "./src/services/user-service";
 
 import { userRouter } from "./src/routes/user-router";
 import { expenseRouter } from "./src/routes/expense-router";
+import { exceptionMiddleware } from "./src/middlewares/exceptionMiddleware";
 
 const app = express();
 app.use(express.json());
@@ -21,6 +22,8 @@ app.use("/expenses", expenseRouter);
 app.get("/", (req, res) => {
   res.send("Hello from root");
 });
+
+app.use(exceptionMiddleware);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);

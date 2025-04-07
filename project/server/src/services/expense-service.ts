@@ -1,3 +1,4 @@
+import { NotFoundError } from "../exceptions/Exceptions";
 import { expenses, Expense } from "./user-service";
 
 export class ExpenseService {
@@ -5,6 +6,10 @@ export class ExpenseService {
     const userExpenses = expenses.filter(
       (expense) => expense.userId === userId
     );
+
+    if (userExpenses.length === 0) {
+      throw new NotFoundError("No expenses found for this user.");
+    }
 
     return userExpenses;
   }

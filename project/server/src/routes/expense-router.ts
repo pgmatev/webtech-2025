@@ -6,18 +6,22 @@ import { ExpenseService } from "../services/expense-service";
 
 export const expenseRouter = Router();
 
-expenseRouter.get("/", (req, res) => {
-  const userId = req.query.userId as string;
+expenseRouter.get("/", (req, res, next) => {
+  try {
+    const userId = req.query.userId as string;
 
-  if (userId) {
-    const userExpenses = ExpenseService.getExpenseByUserId(userId);
+    if (userId) {
+      const userExpenses = ExpenseService.getExpenseByUserId(userId);
 
-    res.json(userExpenses);
-    return;
+      res.json(userExpenses);
+      return;
+    }
+
+    const allExpenses = ExpenseService.getAllExpenses();
+    res.json(allExpenses);
+  } catch (error) {
+    next(error);
   }
-
-  const allExpenses = ExpenseService.getAllExpenses();
-  res.json(allExpenses);
 });
 
 expenseRouter.post("/", expensePostMiddleware, (req, res) => {
