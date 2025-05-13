@@ -1,0 +1,8 @@
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-item {
+  border-bottom: 2px black solid;
+}

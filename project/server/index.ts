@@ -1,5 +1,6 @@
 import http from "http";
 import dotenv from "dotenv";
+import cors from "cors";
 import express from "express";
 
 import { Request, Response } from "express";
@@ -10,6 +11,7 @@ import { expenseRouter } from "./src/routes/expense-router";
 import { exceptionMiddleware } from "./src/middlewares/exceptionMiddleware";
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 dotenv.config();
